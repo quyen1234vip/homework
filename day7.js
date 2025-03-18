@@ -484,11 +484,3 @@
 // const reversed = reverseCountries(countries);
 
 // console.log(reversed);
-
-
-function greetings(name = 'Peter') {
-    let message = `${name}, welcome to 30 Days Of JavaScript!`
-    return message
-  }
-  
-  console.log(greetings())
