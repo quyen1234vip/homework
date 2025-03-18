@@ -463,6 +463,32 @@
 // console.log(checkItemType(["a", "b", "c"]));      
 // console.log(checkItemType([true, false, true]))
 // console.log(checkItemType(["1", 2, 3, 4]));
+18.
+// function isValidVariable(name) {
+//   if (typeof name !== "string") {
+//       return "dau vao phai la chuoi";
+//   }
+//   if (name.length === 0) {
+//       return false;
+//   }
+//   if (!isNaN(name[0])) {
+//       return false;
+//   }
+//   for (let i = 0; i < name.length; i++) {
+//       let char = name[i];
+//       if (
+//           !(char >= "a" && char <= "z") && !(char >= "A" && char <= "Z") && !(char >= "0" && char <= "9") && char !== "_" && char !== "$"     
+//       ) {
+//           return false; 
+//       }
+//   }
+//   return true;
+// }
+// console.log(isValidVariable("myVar"));      
+// console.log(isValidVariable("_private"));   
+// console.log(isValidVariable("$money"));     
+// console.log(isValidVariable("2fast"));      
+// console.log(isValidVariable("hello world"));
 19.
 // function generateUniqueNumbers() {
 //     let numbers = [];
