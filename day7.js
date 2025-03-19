@@ -386,7 +386,17 @@
 // }
 // console.log(convertHexatoRgb("#ff5555"));
 6.
-
+function convertRgbToHexa(r, g, b) {
+    if (r < 0 || r > 255 || g < 0 || g > 255 || b < 0 || b > 255) {
+        return " RGB không hop le";
+    }
+    let redHex = r.toString(16).padStart(2, '0');
+    let greenHex = g.toString(16).padStart(2, '0');
+    let blueHex = b.toString(16).padStart(2, '0');
+    return "#" + redHex + greenHex + blueHex;
+}
+console.log(convertRgbToHexa(255, 99, 71));
+console.log(convertRgbToHexa(-1,254,254))  
 // 7.
 // function generateColors(type, count) {
 //     let colors = []; 
@@ -421,6 +431,43 @@
 //     }
 //     return array;
 // }
+9.
+function factorial(n) {
+    let result = 1;
+    let i = n;
+
+    if (i > 1) {
+        result *= i;
+        i--;
+    }
+
+    return result;
+}
+console.log(factorial(5));
+console.log(factorial(0));
+10.
+function isEmpty(value) {
+    if (value === undefined || value === null) {
+        return true;
+    }
+    if (typeof value === "string" && value.trim() === "") {
+        return true; 
+    }
+    if (Array.isArray(value) && value.length === 0) {
+        return true; 
+    }
+    if (typeof value === "object" && !Array.isArray(value) && Object.keys(value).length === 0) {
+        return true;
+    }
+    return false; 
+}
+console.log(isEmpty(null));      
+console.log(isEmpty(""));        
+console.log(isEmpty("   "));     
+console.log(isEmpty([]));        
+console.log(isEmpty({}));        
+console.log(isEmpty("hello"));   
+
 // console.log(shuffleArray([1, 2, 3, 4, 5]));
 // console.log(shuffleArray(["A", "B", "C", "D"]));
 // 11.
@@ -435,9 +482,111 @@
 // console.log(sum(5, 10, 15));    
 // console.log(sum(1, 2, 3, 4)); 
 // console.log(sum(-1, 2, 3)); 
+11.
+function sum(...args) {
+    let total = 0; 
+    for (let num of args) { 
+        total += num; 
+    }
+    return total;
+}
+console.log(sum(1, 2, 3));
+console.log(sum(10, 20, 30, 40));
+console.log(sum(5));             
+console.log(sum());              
+// 12.
+// function sumOfArrayItems(arr) {
+//   if (!Array.isArray(arr)) {
+//       return "dau vao phai la mang.";
+//   }
+//   if (arr.length === 0) {
+//       return "mang ko duoc de trong.";
+//   }
+//   let sum = 0;
+//   for (let i = 0; i < arr.length; i++) {
+//       let value = arr[i]; 
+//       if (typeof value !== "number") {
+//           return "Phan tu ko phai la so";
+//       }
+//       sum += value; 
+//   }
+
+  
+//   return sum;
+// }
+// console.log(sumOfArrayItems([1, 2, 3, 4, 5]));  
+// console.log(sumOfArrayItems([1, "a", 3]));     
+// console.log(sumOfArrayItems([]));             
+// console.log(sumOfArrayItems("khong phai mang"));
+13.
+// function average(arr) {
+//   if (!Array.isArray(arr)) {
+//       return "dau vao phai la mang";
+//   }
+
+  
+//   if (arr.length === 0) {
+//       return " ko duoc de trong.";
+//   }
+
+//   let sum = 0; 
+//   let count = 0; 
+
+  
+//   for (let i = 0; i < arr.length; i++) {
+//       let value = arr[i]; 
+
+      
+//       if (typeof value !== "number") {
+//           return "co gia tri nhung ko phai so";
+//       }
+
+//       sum += value; 
+//       count++; 
+//   }
+
+  
+//   let avg = sum / count;
+//   return avg;
+// }
 
 
-
+// console.log(average([10, 20, 30, 40]));   
+// console.log(average([5, 15, 25, 35]));    
+// console.log(average([1, "b", 3]));       
+// console.log(average([]));                 
+// console.log(average("khong phai mảng"))
+14.
+// function modifyArray(arr) {
+//   if (!Array.isArray(arr)) {
+//       return "dau vao phai la mang.";
+//   }
+//   if (arr.length < 5) {
+//       return "Not Found";
+//   }
+//   arr[4] = arr[4].toUpperCase();
+//   return arr;
+// }
+// console.log(modifyArray(['Avocado', 'Tomato', 'Potato','Mango', 'Lemon','Carrot']));
+// console.log(modifyArray(['Google', 'Facebook','Apple', 'Amazon','Microsoft',  'IBM']));
+// console.log(modifyArray(['Google', 'Facebook','Apple', 'Amazon']));
+15.
+// function isPrime(n) {
+//   if (n < 2) {
+//       return false;
+//   }
+//   for (let i = 2; i < n; i++) {
+//       if (n % i === 0) {
+//           return false; 
+//       }
+//   }
+//   return true; 
+// }
+// console.log(isPrime(2));   
+// console.log(isPrime(3));   
+// console.log(isPrime(4));   
+// console.log(isPrime(17));  
+// console.log(isPrime(20));
 16.
 // function areAllItemsUnique(arr) {
 //     for (let i = 0; i < arr.length; i++) {
@@ -463,7 +612,7 @@
 // console.log(checkItemType(["a", "b", "c"]));      
 // console.log(checkItemType([true, false, true]))
 // console.log(checkItemType(["1", 2, 3, 4]));
-18.
+// 18.
 // function isValidVariable(name) {
 //   if (typeof name !== "string") {
 //       return "dau vao phai la chuoi";
@@ -510,3 +659,5 @@
 // const reversed = reverseCountries(countries);
 
 // console.log(reversed);
+
+
