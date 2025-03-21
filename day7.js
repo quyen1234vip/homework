@@ -111,45 +111,56 @@
 // console.log(findMax(0, 10, 5))
 //ex2
 1.
-// function solveLinEquation(a, b, c, x = null, y = null) {
-//     if (x !== null && y === null) {
-       
-//         if (b === 0) 
-//         return "khong the tinh y vi b = 0.";
-//         return -(a * x + c) / b;
-//     } 
-//     else if (y !== null && x === null) {
-       
-//         if (a === 0) 
-//         return "khong the tinh x vi a = 0.";
-//         return -(b * y + c) / a;
-//     } 
-//     else {
-//         return "nhap gia tri x hoac y de tinh";
-//     }
-// }
-// console.log(solveLinEquation(1, 3, 5, 2));
+function solveLinEquation(a, b, c) {
+    if (a === 0 && b === 0 && c === 0) {
+        return "Phuong trinh co vo so nghiem";
+    }
+    if (a === 0 && b === 0 && c !== 0) {
+        return "Phuong trinh vo nghiem";
+    }
+    if (a === 0) {
+        let y = -c / b;
+        return "Nghiem la: y = " + y;
+    }
+    if (b === 0) {
+        let x = -c / a;
+        return "Nghiem la: x = " + x;
+    }
+    return "Phuong trinh co nghiem: x = (-c - " + b + "y) / " + a;
+}
+console.log(solveLinEquation(2, 3, -6)); 
+console.log(solveLinEquation(0, 3, -6)); 
+console.log(solveLinEquation(2, 0, -6)); 
+console.log(solveLinEquation(0, 0, 0));  
+console.log(solveLinEquation(0, 0, 5));
 2.
-// function solveQuadEquation(a, b, c) {
-//     let delta = b * b - 4 * a * c;
-//     if (a === 0) {
-//         return "khong phai phuong trinh bac 2.";
-//     }
-//     if (delta > 0) {
-//         let x1 = (-b + Math.sqrt(delta)) / (2 * a);
-//         let x2 = (-b - Math.sqrt(delta)) / (2 * a);
-//         return "hai nnghiem pb: x1 = " + x1 + ", x2 = " + x2;
-//     } 
-//     else if (delta === 0) {
-//         let x = -b / (2 * a);
-//         return "nghiem kep: x = " + x;
-//     } 
-//     else {
-//         return "Phương trình vô nghiệm.";
-//     }
-// }
-// console.log(solveQuadEquation(1, -3, 2));
-// console.log(solveQuadEquation(1, 4, 4))
+function solveQuadEquation(a, b, c) {
+    if (a === 0) {
+        if (b === 0) {
+            if (c === 0) {
+                return "Phuong trinh co vo so nghiem";
+            } else {
+                return "Phuong trinh vo nghiem";
+            }
+        }
+        return "Phuong trinh bac nhat, nghiem la: x = " + (-c / b);
+    }
+    let delta = b * b - 4 * a * c;
+    if (delta > 0) {
+        let x1 = (-b + Math.sqrt(delta)) / (2 * a);
+        let x2 = (-b - Math.sqrt(delta)) / (2 * a);
+        return "Phuong trinh co 2 nghiem phan biet: x1 = " + x1 + ", x2 = " + x2;
+    }
+    if (delta === 0) {
+        let x = -b / (2 * a);
+        return "Phuong trinh co nghiem kep: x = " + x;
+    }
+    return "Phuong trinh vo nghiem trong tap so thuc!";
+}
+console.log(solveQuadEquation(1, -3, 2));  
+console.log(solveQuadEquation(1, -2, 1));  
+console.log(solveQuadEquation(1, 1, 1));  
+console.log(solveQuadEquation(0, 2, -4)); 
 3.
 // function printArray(arr) {
 //     for (let value of arr) {
